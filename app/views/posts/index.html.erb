@@ -1,0 +1,12 @@
+<h1>Hacker News Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post.title %></li>
+    <%= link_to "Delete", post_path(post), :data => { :confirm => "Are you sure?" },
+                                           :method => "delete",
+                                           :class => "btn btn-default" %>
+  <% end %>
+</ul>
+
+<%= link_to "New post", new_post_path, :class => "btn btn-default" %>
