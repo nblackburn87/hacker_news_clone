@@ -14,6 +14,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Your post has been uploaded successfully."
       redirect_to posts_path
     else
+      flash[:alert] = "Your post failed to save. Please try again."
       render 'new'
     end
   end

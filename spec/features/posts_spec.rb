@@ -15,6 +15,14 @@ describe Post do
       click_button 'Create Post'
       page.should have_content post.title
     end
+
+    it 'returns an error message if the page fails to create' do
+      post = FactoryGirl.build :post
+      visit new_post_path
+      fill_in 'User', with: post.user
+      click_button 'Create Post'
+      page.should have_content "Please fix these errors:"
+    end
   end
 
   context 'viewing' do
