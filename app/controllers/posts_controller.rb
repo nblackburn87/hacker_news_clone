@@ -19,13 +19,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-    @comment_found = Comment.find(params[:id])
-    @comment = Comment.new(:commentable_id => @post.id, :commentable_type => "Post")
-    @comment = Comment.new(:commentable_id => @comment_found.id, :commentable_type => "Post")
-  end
-
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
