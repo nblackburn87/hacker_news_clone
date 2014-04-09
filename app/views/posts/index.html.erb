@@ -3,6 +3,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li><%= link_to post.title, post.title %></li>
+    <%= link_to "#{post.comments.all.length} comments", post_path(post), :class => "btn btn-default" %>
     <%= link_to "Delete", post_path(post), :data => { :confirm => "Are you sure?" },
                                            :method => "delete",
                                            :class => "btn btn-default" %>

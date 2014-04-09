@@ -1,0 +1,21 @@
+<% if object.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+  <% object.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(object) do |f| %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user %>
+    <%= f.text_field :user %>
+  </div>
+
+  <%= f.submit(:class => "tiny button") %>
+<% end %>

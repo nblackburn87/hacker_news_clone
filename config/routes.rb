@@ -1,5 +1,5 @@
 HackerNews::Application.routes.draw do
 
-resources :posts, :except => [:show, :edit, :update]
-resources :comments
+resources :posts, :except => [:edit, :update]
+resources :comments, :except => [:index]
 end
